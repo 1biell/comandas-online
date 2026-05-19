@@ -1,104 +1,128 @@
-# 🍣 Sistema de Comanda Online
+# Comandas Online — Sistema de Pedidos para Restaurantes
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
-![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)
+> Sistema web para gestão de pedidos em restaurantes, substituindo comandas em papel por um fluxo digital em tempo real entre garçom, cozinha e histórico.
 
-Sistema de pedidos online desenvolvido para restaurantes, substituindo o uso de papel e evitando confusões com pedidos errados ou quantidades incorretas.
-
----
-
-## 🛠 Tecnologias Utilizadas
-
-- **Frontend:** React.js, HTML, CSS  
-- **Backend:** Node.js, Express  
-- **Banco de Dados:** PostgreSQL  
-- **Gerenciamento de Pacotes:** npm  
-- **Hospedagem do Banco:** Render  
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![Node](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-black?logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
 ---
 
-## ⚡ Funcionalidades
+## 📌 Sobre o Projeto
 
-### 🧑‍🍳 Menu do Garçom
-- Adicionar múltiplos itens em um único pedido (ex: Temaki, Hosomaki, Sashimi).  
-- Editar quantidade de cada item antes de enviar.  
-- Enviar pedidos para a cozinha.  
-- Visualizar pedidos recentes primeiro.  
-- Paginação de pedidos (5 por página).
+O **Comandas Online** digitaliza o processo de pedidos em restaurantes — do garçom à cozinha — eliminando erros de comunicação e perda de tempo com papel. Cada pedido é registrado, acompanhado em tempo real e arquivado no histórico.
 
-### 🍳 Menu da Cozinha
-- Visualizar pedidos recebidos.  
-- Alterar status do pedido: **Pendente → Em Preparo → Concluído**.  
-- Destaque visual por status (cores diferentes).  
-- Paginação de pedidos (5 por página).
+---
+
+## ✨ Funcionalidades
+
+### 🧑‍🍳 Painel do Garçom
+- Adicionar múltiplos itens em um único pedido
+- Editar quantidade de cada item antes de enviar
+- Enviar pedidos diretamente para a cozinha
+- Visualizar pedidos mais recentes primeiro
+- Paginação de pedidos (5 por página)
+
+### 🍳 Painel da Cozinha
+- Visualizar pedidos recebidos em tempo real
+- Alterar status: **Pendente → Em Preparo → Concluído**
+- Destaque visual por status com cores distintas
+- Paginação de pedidos (5 por página)
 
 ### 📜 Histórico de Pedidos
-- Consultar pedidos já concluídos.  
-- Visualização de mesa, itens e horário.  
-- Paginação de pedidos (3 por página).
+- Consultar todos os pedidos concluídos
+- Visualização de mesa, itens e horário
+- Todos os horários no fuso horário America/Sao_Paulo
+- Paginação (3 por página)
 
 ---
 
-## 📦 Estrutura do Projeto
+## 🛠️ Stack Tecnológica
 
-Sushi-Pedidos/
-├─ backend/
-│ ├─ controllers/
-│ ├─ models/
-│ ├─ routes/
-│ ├─ .env # Contém variáveis sensíveis do banco de dados
-│ └─ server.js
-├─ frontend/
-│ ├─ src/
-│ └─ package.json
-├─ .gitignore
-└─ README.md
+| Camada | Tecnologias |
+|--------|-------------|
+| Frontend | React.js, HTML, CSS |
+| Backend | Node.js, Express.js |
+| Banco de Dados | PostgreSQL |
+| Hospedagem do Banco | Render |
 
 ---
 
-## ⚙️ Configuração do Backend e Front End
+## 🚀 Como Rodar Localmente
 
+### Pré-requisitos
+- Node.js 18+
+- PostgreSQL
+- npm
+
+### 1. Clone o repositório
 ```bash
+git clone https://github.com/1biell/comandas-online.git
+cd comandas-online
+```
 
-- ⚙️ Configuração do Backend
-
-1. Instalar dependências:
-
+### 2. Configure o Backend
+```bash
 cd backend
 npm install
+```
 
-2. Criar arquivo .env com suas credenciais:
+Crie o arquivo `.env` com suas credenciais:
+```env
 DB_USER=seu_usuario
 DB_PASSWORD=sua_senha
 DB_HOST=host_do_banco
 DB_NAME=nome_do_banco
 DB_PORT=5432
+```
 
-3. Rodar o servidor:
+Inicie o servidor:
+```bash
 node server.js
+```
 
-- ⚙️ Configuração do Frontend
-
-1. Instalar dependências:
-
-cd frontend
+### 3. Configure o Frontend
+```bash
+cd ../Frontend
 npm install
-
-2. Rodar o frontend:
 npm run dev
+```
 
-🔒 Segurança
+### 4. Acesse
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3000
 
-Credenciais do banco de dados estão protegidas pelo .env e não devem ser versionadas.
+---
 
-O .gitignore já exclui o arquivo .env do Git.
+## 📁 Estrutura do Projeto
 
-📌 Observações
+```
+comandas-online/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+├── Frontend/
+│   └── src/
+├── .gitignore
+└── README.md
+```
 
-Todos os horários dos pedidos são exibidos no fuso horário America/Sao_Paulo.
+---
 
-Os pedidos mais recentes sempre aparecem primeiro.
+## 🔒 Segurança
 
-Sistema pronto para uso em qualquer restaurante que queira substituir papel por comanda online.
+- Credenciais do banco protegidas via `.env`
+- Arquivo `.env` ignorado pelo `.gitignore`
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Gabriel Terra**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-gabrielnterra-0077B5?logo=linkedin&logoColor=white)](https://linkedin.com/in/gabrielnterra)
+[![GitHub](https://img.shields.io/badge/GitHub-1biell-181717?logo=github&logoColor=white)](https://github.com/1biell)
